@@ -1,42 +1,104 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html, body {
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+}
+ul, ol {
+  list-style: none;
+}
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+input[type="text"] {
+  height: 32px;
+  padding: 0 12px;
+  background-color: #FFF;
+  border: 1px solid #e1e1e1;
+  border-radius: 4px;
+}
+input[type="text"]:focus {
+  outline: 1px solid #6D4C41;
+}
+.btn {
+  width: auto;
+  height: 32px;
+  padding: 0 12px;
+  font-size: 13px;
+  background-color: #6D4C41;
+  border: none;
+  border-radius: 4px;
+  color: #FFF;
+  cursor: pointer;
+}
+.todo-box {
+  width: 100%;
+  max-width: 380px;
+  padding: 12px 24px;
+  border: 1px solid #e1e1e1;
+  border-radius: 12px;
+}
+.title {
   text-align: center;
 }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 24px;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.todo-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 12px 9px 12px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #e1e1e1;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.todo-list .text-box {
+  width: calc(100% - 116px);
+  position: relative;
 }
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.todo-list .text-box .complete-check {
+  display: none;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.todo-list .text-box .complete-check:checked + .todo-content {
+  text-decoration: line-through;
 }
-
-.card {
-  padding: 2em;
+.todo-list .text-box .todo-content {
+  cursor: pointer;
 }
-
-.read-the-docs {
-  color: #888;
+.todo-list .text-box .edit-inp {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}
+.todo-list .btn-box  {
+  display: flex;
+  gap: 8px;
+}
+.todo-list .btn-box .btn.del-btn {
+  background-color: red;
+}
+.add-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.add-box .add-inp {
+  width: 100%;
+}
+.add-box .add-btn {
+  white-space: nowrap;
 }
